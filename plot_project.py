@@ -14,7 +14,7 @@ import math
 import csv
 
 #load in the china dataset
-c_path="/Users/rohanmathew/Downloads/chinagdp.json"
+c_path="/Users/rohanmathew/Documents/GitHub/Data-project/chinagdp.json"
 c_d_a=[]
 with open(c_path, 'r', encoding='utf-8') as c_file:
     c_data = json.load(c_file)
@@ -27,7 +27,7 @@ c_lngdp = {year: math.log(value) for year, value in c_sort.items()}
 #Sorted and transformed into log GDP
 
 #India GDP should have the exact same structure so will rewrite China data code
-i_path="/Users/rohanmathew/Downloads/indiagdp.json"
+i_path="/Users/rohanmathew/Documents/GitHub/Data-project/indiagdp.json"
 i_d_a=[]
 with open(i_path, 'r', encoding='utf-8') as i_file:
     i_data = json.load(i_file)
@@ -48,7 +48,7 @@ gdpyc= list(c_lngdp.values())
 yearxi = list(i_lngdp.keys())
 gdpyi= list(i_lngdp.values())
 
-GDP_image = "/Users/rohanmathew/Downloads/GDPgraph.png"
+GDP_image = "/Users/rohanmathew/Documents/GitHub/Data-project/GDPgraph.png"
 #Generated image
 
 
@@ -90,7 +90,7 @@ occupations = {
 }
 ### List of occupations I will be considering
 oc_n=0
-with open('/Users/rohanmathew/Downloads/lok sabha python.csv', mode='r', encoding='utf-8') as file:
+with open('/Users/rohanmathew/Documents/GitHub/Data-project/lok sabha python.csv', mode='r', encoding='utf-8') as file:
     csv_reader = csv.reader(file)
     for row in csv_reader:
         if row[11] in occupations:
@@ -105,11 +105,7 @@ with open('/Users/rohanmathew/Downloads/lok sabha python.csv', mode='r', encodin
             oc_n+= 1
             occupations['Other'] +=1
 
-counted = sum(occupations.values())
 
-print(occupations)
-print(oc_n)
-print(counted)
 
 # Data for the pie chart
 labels = occupations.keys()
@@ -121,7 +117,7 @@ plt.pie(sizes, labels=labels, autopct='%1.1f%%', startangle=90)
 plt.title('Lok Sabha Occupation Distribution')
 plt.axis('equal')
 
-occupation_img = "/Users/rohanmathew/Downloads/occupation_img.png"
+occupation_img = "/Users/rohanmathew/Documents/GitHub/Data-project/occupation_img.png"
 plt.savefig(occupation_img)
 plt.close()
 
